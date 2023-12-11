@@ -1,46 +1,36 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from "react";
+import { useQuery } from "react-query";
 
 interface Wine {
+  vintage: {
     name: string;
+  };
 }
 
+const fetchWines = async () => {
+  const response = await fetch(
+    "https://corsproxy.io/?" +
+      encodeURIComponent(
+        "https://api.vivino.com/vintages/_explore?limit=50&q=cabernet%20sauvignon"
+      )
+  );
+  const wines = (await response.json()).matches;
+  return wines;
+};
+
 const WineList: React.FC = () => {
-    const [wines, setWines] = useState<Wine[]>([]);
-    const [error, setError] = useState<string | null>(null);
+  const { data, isLoading } = useQuery("wines", fetchWines);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get('https://api.vivino.com/vintages/_explore', {
-                    params: {
-                        limit: 50,
-                        q: 'cabernet sauvignon'
-                    }
-                });
-                setWines(response.data);
-            } catch (error) {
-                setError('Failed to fetch wines');
-            }
-        };
-
-        fetchData();
-    }, []);
-
-    if (error) {
-        return <div>Error: {error}</div>;
-    }
-
-    return (
-        <div>
-            <h1>Wine List</h1>
-            <ul>
-                {wines.map((wine, index) => (
-                    <li key={index}>{wine.name}</li>
-                ))}
-            </ul>
-        </div>
-    );
+  return (
+    <div>
+      <h1>Wine List</h1>
+      <ul>
+        {data?.map((wine: any, index: number) => (
+          <li key={index}>{wine.vintage.name}</li>
+        ))}{" "}
+      </ul>
+    </div>
+  );
 };
 
 export default WineList;

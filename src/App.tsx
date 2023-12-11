@@ -1,11 +1,16 @@
-import './App.scss';
-import WineList from './WineList';
+import "./App.scss";
+import WineList from "./WineList";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <div className="App">
-      <WineList/>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div className="App">
+        <WineList />
+      </div>
+    </QueryClientProvider>
   );
 }
 
