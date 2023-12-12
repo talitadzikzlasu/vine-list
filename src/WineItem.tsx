@@ -20,7 +20,10 @@ export const WineItem: React.FC<WineItemProps> = ({ wine }) => {
     <div className={styles.wineItem}>
       <div
         style={{
-          backgroundImage: `url(${wine.vintage.image.variations.bottle_small})`,
+          backgroundImage: `url(${
+            wine.vintage.image.variations.bottle_small ??
+            "./bottle_placeholder_small.png"
+          })`,
         }}
         className={styles.wineImage}
       ></div>

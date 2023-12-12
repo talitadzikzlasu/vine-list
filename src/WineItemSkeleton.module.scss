@@ -1,0 +1,91 @@
+.wineItemSkeleton {
+  display: flex;
+  background-color: #f0f0f0;
+  border-radius: 16px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  width: 750px;
+  border: 1px solid rgb(236, 235, 235);
+  margin: 56px auto 0;
+  padding: 16px;
+
+  @media (max-width: 768px) {
+    width: calc(100% - 16px);
+    margin: 56px 8px 0;
+    flex-direction: column;
+  }
+
+  .wineImageSkeleton {
+    margin-top: -45px;
+    width: 150px;
+    height: 300px;
+    flex: 0 0 25%;
+    margin-right: 10px;
+    mask-image: url("./images/bottle_skeleton_small.png");
+    mask-repeat: no-repeat;
+    mask-position: center;
+
+    background: linear-gradient(
+      90deg,
+      rgba(208, 207, 207, 0.224) 0%,
+      rgba(207, 205, 205, 0.8) 33%,
+      rgba(198, 197, 197, 0.2) 100%
+    );
+    background-size: 200% 100%;
+    border-radius: 16px;
+    animation: gradientAnimation 5s ease-in-out infinite;
+
+    @media (max-width: 768px) {
+      width: calc(100% - 16px);
+      margin: 56px 8px 0;
+      flex-direction: column;
+    }
+  }
+
+  .wineTextSkeleton {
+    flex: 1 1 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 24px;
+
+    .text {
+      height: 30px;
+      width: 160px;
+      border-radius: 8px;
+      background: linear-gradient(
+        90deg,
+        rgba(208, 207, 207, 0.224) 0%,
+        rgba(207, 205, 205, 0.8) 33%,
+        rgba(198, 197, 197, 0.2) 100%
+      );
+      background-size: 200% 100%;
+
+      animation: gradientAnimation 5s ease-in-out infinite;
+    }
+  }
+
+  .ratingSkeleton {
+    flex: 1 1 25%;
+    height: 20px;
+    width: 50%;
+  }
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes lighten {
+  0% {
+    background-color: grey;
+  }
+  100% {
+    background-color: lighten(grey, 20%);
+  }
+}
