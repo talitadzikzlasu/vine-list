@@ -1,49 +1,68 @@
 ul li {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 .wineItem {
-    display: flex;
-    align-items: center;
-    background-color: white;
-    border-radius: 16px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 750px;
-    border: 1px solid rgb(236, 235, 235);
-    margin: 48px auto 0;
-    padding: 16px;
+  display: flex;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 750px;
+  border: 1px solid rgb(236, 235, 235);
+  margin: 48px auto 0;
+  padding: 16px;
+  transition: box-shadow 0.2s ease-in;
 
-    @media (max-width: 768px) {
-        width: 100%;
-        margin: 0 2px;
-    }
+  @media (max-width: 768px) {
+    width: 100%;
+    margin: 0 2px;
+  }
 
-    &:hover {
-        .wineImage {
-            transform: scale(1.1);
-        }
-    }
-
-    &:not(:hover) {
-        .wineImage {
-            transform: scale(1);
-        }
-    }
+  &:hover {
+    border-color: white;
+    box-shadow: 8px 8px 16px rgba(84, 83, 83, 0.2);
 
     .wineImage {
-        margin-top: -45px;
-        width: 150px;
-        height: 300px;
-        background-position: center;
-        background-repeat: no-repeat;
-        flex: 0 0 auto;
-        margin-right: 10px;
-        align-self: center;
-        transition: transform 0.3s ease-in;
-        transform-origin: bottom center;
+      transform: scale(1.07);
+    }
+  }
+
+  .wineImage {
+    margin-top: -45px;
+    width: 150px;
+    height: 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex: 0 0 auto;
+    margin-right: 10px;
+    align-self: center;
+    transition: transform 0.2s ease-in;
+    transform-origin: bottom center;
+  }
+
+  .wineText {
+    padding: 8px;
+    line-height: 28px;
+    font-family: "Inter", sans-serif;
+
+    .winery {
+      font-size: 1.3em;
+      color: rgb(30, 30, 30);
     }
 
-    .wineText {
-        flex: 1 1 auto;
+    .name {
+      font-size: 1.3em;
+      font-weight: 500;
     }
+
+    .origin {
+      display: flex;
+      align-items: center;
+      font-size: 1em;
+
+      .region {
+        margin-left: 8px;
+      }
+    }
+  }
 }
