@@ -51,10 +51,12 @@ const WineList: React.FC = () => {
                   </span>
                 </div>
               </div>
-              <Rating
-                value={wine.vintage.wine.statistics.ratings_average}
-                count={wine.vintage.wine.statistics.ratings_count}
-              />
+              <div className={styles.rating}>
+                <Rating
+                  value={wine.vintage.wine.statistics.ratings_average}
+                  count={wine.vintage.wine.statistics.ratings_count}
+                />
+              </div>
             </div>
           </li>
         ))}
