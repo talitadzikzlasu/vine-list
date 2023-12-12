@@ -32,17 +32,6 @@ const WineList: React.FC = () => {
     setFilterOptions(options);
   };
 
-  if (isLoading) {
-    return (
-      <div style={{ width: "100%" }}>
-        <FilterPanel onChange={handleFilterChange} />
-        <WineItemSkeleton />
-        <WineItemSkeleton />
-        <WineItemSkeleton />
-      </div>
-    );
-  }
-
   return (
     <div style={{ width: "100%" }}>
       <FilterPanel onChange={handleFilterChange} />
@@ -63,7 +52,6 @@ const WineList: React.FC = () => {
           {data?.map((wine: any, index: number) => (
             <li key={wine.vintage.id}>
               <WineItem wine={wine} />
-              <WineItemSkeleton />
             </li>
           ))}
         </ul>
