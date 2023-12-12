@@ -1,0 +1,29 @@
+.rating {
+  display: flex;
+  align-items: center;
+
+  .text {
+    margin-left: 0.5em;
+    color: #333;
+    font-size: 0.9em;
+  }
+}
+
+.starItem {
+  font-size: 16px;
+  position: relative;
+  display: inline-block;
+
+  .starUnder {
+    color: #ddd;
+    vertical-align: top;
+  }
+
+  .starOver {
+    color: #72161a;
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+  }
+}
