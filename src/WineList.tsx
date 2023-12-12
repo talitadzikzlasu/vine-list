@@ -3,9 +3,10 @@ import { useQuery } from "react-query";
 import { WineItem } from "./WineItem";
 import { FilterPanel } from "./FilterPanel";
 import { WineItemSkeleton } from "./WineItemSkeleton";
+import styles from "./WineList.module.scss";
 
 const fetchWines = async (filterOptions: any) => {
-  let countryCodes = "q=puglia";
+  let countryCodes = "q=pugliadfd";
   if (filterOptions.length > 0)
     countryCodes = filterOptions
       .map((code: string) => `country_codes[]=${code}`)
@@ -33,7 +34,7 @@ const WineList: React.FC = () => {
   };
 
   return (
-    <div style={{ width: "100%" }}>
+    <div style={{ width: "100%" }} className={styles.wineListContainer}>
       <FilterPanel onChange={handleFilterChange} />
       {isLoading ? (
         <ul>
@@ -47,7 +48,7 @@ const WineList: React.FC = () => {
             <WineItemSkeleton />
           </li>
         </ul>
-      ) : (
+      ) : data.length > 0 ? (
         <ul>
           {data?.map((wine: any, index: number) => (
             <li key={wine.vintage.id}>
@@ -55,6 +56,14 @@ const WineList: React.FC = () => {
             </li>
           ))}
         </ul>
+      ) : (
+        <div className={styles.emptyListText}>
+          <p>No wines found</p>
+          <div>
+            No wines matched your search. Please adjust your filters or check
+            back with us later for more exquisite selections.
+          </div>
+        </div>
       )}
     </div>
   );

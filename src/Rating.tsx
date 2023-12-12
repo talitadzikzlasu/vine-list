@@ -7,8 +7,6 @@ interface RatingProps {
 }
 
 const Rating: React.FC<RatingProps> = ({ value, count }) => {
-  let starSize = value;
-
   return (
     <div className={styles.container}>
       <span className={styles.value}>{value.toFixed(1)}</span>
@@ -18,7 +16,7 @@ const Rating: React.FC<RatingProps> = ({ value, count }) => {
             <span key={i} className={styles.starItem}>
               <>
                 {/* Empty star */}
-                <i className={`star fa fa-star ${styles.starUnder}`}></i>
+                <i className={`star fa fa-star ${styles.starUnder}`} />
 
                 {/* Filled star */}
                 {/* The width of the filled star is determined by the difference between the starSize and the current index (i). 
@@ -29,9 +27,9 @@ const Rating: React.FC<RatingProps> = ({ value, count }) => {
                 <i
                   className={`star fa fa-star ${styles.starOver}`}
                   style={{
-                    width: `${Math.max(Math.min(starSize - i, 1), 0) * 100}%`,
+                    width: `${Math.max(Math.min(value - i, 1), 0) * 100}%`,
                   }}
-                ></i>
+                />
               </>
             </span>
           );
