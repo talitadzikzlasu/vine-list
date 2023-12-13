@@ -1,19 +1,21 @@
+@import "./colors.scss";
+
 .tagsContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   position: fixed;
-  background-color: white;
+  background-color: $white;
   top: 0;
   min-height: 80px;
   width: 100%;
   z-index: 100;
 
   .tag {
-    background-color: white;
-    border: 1px solid rgb(131, 31, 31);
-    color: rgb(131, 31, 31);
+    background-color: $white;
+    border: 1px solid $tag-strong;
+    color: $tag-strong;
     border-radius: 40px;
     padding: 4px 16px;
     margin: 4px;
@@ -28,15 +30,15 @@
     cursor: pointer;
 
     &:hover {
-      background-color: rgb(233, 181, 181);
+      background-color: $tag-highlight;
     }
   }
 
   .selected {
-    background-color: rgb(131, 31, 31);
-    color: white;
+    background-color: $tag-strong;
+    color: $white;
     &:hover {
-      background-color: rgb(131, 31, 31);
+      background-color: $tag-strong;
     }
   }
 }

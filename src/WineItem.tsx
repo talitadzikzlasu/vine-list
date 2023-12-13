@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./WineItem.module.scss";
 import { CircleFlag } from "react-circle-flags";
 import Rating from "./Rating";

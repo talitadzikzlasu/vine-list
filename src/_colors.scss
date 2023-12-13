@@ -1,0 +1,31 @@
+// Basic Colors
+$black: #000000;
+$white: #ffffff;
+$red: #72161a;
+$red-light: #e9b5b5;
+$gray-very-light: #fafafa;
+$gray-light: #f0f0f0;
+$gray: #ddd;
+$gray-dark: #1e1e1e;
+
+// Elements Colors
+$border: $gray-light;
+$background: $gray-very-light;
+$skeleton-background: $gray-light;
+
+// Text Colors
+$text-primary: $black;
+$text-secondary: $gray-dark;
+
+// Gradient Colors for Skeleton
+$gradient-skeleton-start: rgba(208, 207, 207, 0.224);
+$gradient-skeleton-middle: rgba(207, 205, 205, 0.8);
+$gradient-skeleton-end: rgba(198, 197, 197, 0.2);
+
+// Star Ratings
+$star-fill: $red;
+$star-background: $gray;
+
+// Tag
+$tag-strong: $red;
+$tag-highlight: $red-light;
