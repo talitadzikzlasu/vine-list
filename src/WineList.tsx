@@ -3,9 +3,9 @@ import { useQuery } from "react-query";
 import { WineItem } from "./WineItem";
 import { FilterPanel } from "./FilterPanel";
 import { WineItemSkeleton } from "./WineItemSkeleton";
-import styles from "./WineList.module.scss";
 import { fetchWines } from "./api";
-import { CountryCode } from "./countries";
+import { CountryCode, WineDetailsType } from "./types";
+import styles from "./WineList.module.scss";
 
 const WineList = () => {
   const [filterOptions, setFilterOptions] = useState<CountryCode[]>([]);
@@ -35,9 +35,9 @@ const WineList = () => {
       );
 
     if (data && data.length > 0)
-      return data.map((wine: any) => (
+      return data.map((wine: WineDetailsType) => (
         <li key={wine.vintage.id}>
-          <WineItem wine={wine} />
+          <WineItem wineDetails={wine} />
         </li>
       ));
 

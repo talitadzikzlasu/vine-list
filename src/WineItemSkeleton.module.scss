@@ -69,9 +69,20 @@
   }
 
   .ratingSkeleton {
-    flex: 1 1 25%;
-    height: 20px;
-    width: 50%;
+    flex: 1 1 10%;
+    height: 80px;
+    width: 60px;
+    border-radius: 8px;
+    margin-top: 24px;
+    margin-right: 24px;
+    background: linear-gradient(
+      90deg,
+      $gradient-skeleton-start 0%,
+      $gradient-skeleton-middle 33%,
+      $gradient-skeleton-end 100%
+    );
+    background-size: 200% 100%;
+    animation: gradientAnimation 5s ease-in-out infinite;
   }
 }
 

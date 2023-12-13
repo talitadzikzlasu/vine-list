@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./FilterPanel.module.scss";
-import { CountryCode, countries } from "./countries";
+import { CountryCode, countries } from "./types";
 
 interface FilterPanelProps {
   onChange: (options: any) => void;
