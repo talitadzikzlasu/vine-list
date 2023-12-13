@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./Rating.module.scss";
 
 interface RatingProps {
@@ -6,7 +5,7 @@ interface RatingProps {
   count: number;
 }
 
-const Rating: React.FC<RatingProps> = ({ value, count }) => {
+export const Rating = ({ value, count }: RatingProps) => {
   return (
     <div className={styles.container}>
       <span className={styles.value}>{value.toFixed(1)}</span>
@@ -40,5 +39,3 @@ const Rating: React.FC<RatingProps> = ({ value, count }) => {
     </div>
   );
 };
-
-export default Rating;

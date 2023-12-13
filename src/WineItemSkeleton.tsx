@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./WineItemSkeleton.module.scss";
 
 export const WineItemSkeleton = () => {
