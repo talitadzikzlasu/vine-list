@@ -1,7 +1,7 @@
 import styles from "./WineItem.module.scss";
 import { CircleFlag } from "react-circle-flags";
-import { Rating } from "./Rating";
-import { WineDetailsType } from "./types";
+import { Rating } from "../Rating";
+import { WineDetailsType } from "../../types";
 
 type WineItemProps = {
   wineDetails: WineDetailsType;

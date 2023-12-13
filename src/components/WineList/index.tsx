@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useQuery } from "react-query";
-import { WineItem } from "./WineItem";
-import { FilterPanel } from "./FilterPanel";
-import { WineItemSkeleton } from "./WineItemSkeleton";
-import { fetchWines } from "./api";
-import { CountryCode, WineDetailsType } from "./types";
+import { WineItem } from "../WineItem";
+import { FilterPanel } from "../FilterPanel";
+import { WineItemSkeleton } from "../WineItemSkeleton";
+import { fetchWines } from "../../services/wine";
+import { CountryCode, WineDetailsType } from "../../types";
 import styles from "./WineList.module.scss";
 
 const WineList = () => {

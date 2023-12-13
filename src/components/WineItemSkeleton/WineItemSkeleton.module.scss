@@ -1,4 +1,4 @@
-@import "./colors.scss";
+@import "../../assets/styles/colors.scss";
 
 .wineItemSkeleton {
   display: flex;
@@ -23,7 +23,7 @@
     height: 300px;
     flex: 0 0 25%;
     margin-right: 10px;
-    mask-image: url("./images/bottle_skeleton_small.png");
+    mask-image: url("../../assets/images/bottle_skeleton_small.png");
     mask-repeat: no-repeat;
     mask-position: center;
 

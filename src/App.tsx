@@ -1,4 +1,4 @@
-import WineList from "./WineList";
+import WineList from "./components/WineList";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 const queryClient = new QueryClient();

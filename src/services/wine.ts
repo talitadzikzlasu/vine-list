@@ -1,4 +1,4 @@
-import { WineDetailsType } from "./types";
+import { WineDetailsType } from "../types";
 
 export const fetchWines = async (
   filterOptions: string[]
