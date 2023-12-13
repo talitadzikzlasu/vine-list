@@ -2,20 +2,13 @@ import React from "react";
 import styles from "./WineItem.module.scss";
 import { CircleFlag } from "react-circle-flags";
 import Rating from "./Rating";
+import { WineDetailsType } from "./types";
 
-interface WineType {
-  vintage: {
-    wine: any;
-    image: any;
-    name: string;
-  };
-}
+type WineItemProps = {
+  wine: WineDetailsType;
+};
 
-interface WineItemProps {
-  wine: WineType;
-}
-
-export const WineItem: React.FC<WineItemProps> = ({ wine }) => {
+export const WineItem = ({ wine }: WineItemProps) => {
   return (
     <div className={styles.wineItem}>
       <div

@@ -7,9 +7,9 @@ interface FilterPanelProps {
 }
 
 export const FilterPanel: React.FC<FilterPanelProps> = ({ onChange }) => {
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [selectedTags, setSelectedTags] = useState<CountryCode[]>([]);
 
-  const handleTagClick = (countryCode: string) => {
+  const handleTagClick = (countryCode: CountryCode) => {
     setSelectedTags((prev) => {
       const updatedSelectedTags = [...prev];
       const index = updatedSelectedTags.indexOf(countryCode);

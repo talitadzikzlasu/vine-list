@@ -1,40 +1,19 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useQuery } from "react-query";
 import { WineItem } from "./WineItem";
 import { FilterPanel } from "./FilterPanel";
 import { WineItemSkeleton } from "./WineItemSkeleton";
 import styles from "./WineList.module.scss";
+import { fetchWines } from "./api";
+import { CountryCode } from "./countries";
 
-const fetchWines = async (filterOptions: string[]) => {
-  let params = new URLSearchParams();
-  const baseQueryString = "puglia";
-
-  if (filterOptions.length > 0) {
-    filterOptions.forEach((code) => {
-      params.append("country_codes[]", code);
-    });
-  } else {
-    params.append("q", baseQueryString);
-  }
-
-  const url = `https://corsproxy.io/?${encodeURIComponent(
-    `https://api.vivino.com/vintages/_explore?limit=50&${params.toString()}`
-  )}`;
-
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error("Failed to fetch wines");
-  }
-  return (await response.json()).matches;
-};
-
-const WineList: React.FC = () => {
-  const [filterOptions, setFilterOptions] = useState<string[]>([]);
+const WineList = () => {
+  const [filterOptions, setFilterOptions] = useState<CountryCode[]>([]);
   const { data, isLoading, error } = useQuery(["wines", filterOptions], () =>
     fetchWines(filterOptions)
   );
 
-  const handleFilterChange = (options: string[]) => {
+  const handleFilterChange = (options: CountryCode[]) => {
     setFilterOptions(options);
   };
 
@@ -47,20 +26,23 @@ const WineList: React.FC = () => {
           <WineItemSkeleton />
         </>
       );
+
     if (error)
       return (
-        <div className={styles.emptyListText}>
+        <div className={styles.listInfo}>
           Error loading wines. Please try again later.
         </div>
       );
+
     if (data && data.length > 0)
-      return data.map((wine: any, index: number) => (
+      return data.map((wine: any) => (
         <li key={wine.vintage.id}>
           <WineItem wine={wine} />
         </li>
       ));
+
     return (
-      <div className={styles.emptyListText}>
+      <div className={styles.listInfo}>
         <p>No wines found</p>
         <div>
           No wines matched your search. Please adjust your filters or check back
